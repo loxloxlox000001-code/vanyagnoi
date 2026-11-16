@@ -1,0 +1,108 @@
+/* ===== ЦВЕТА — меняйте здесь ===== */
+:root {
+  --bg: #0f172a;          /* фон страницы */
+  --card: rgba(255, 255, 255, 0.06);  /* фон карточек */
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #e2e8f0;        /* основной текст */
+  --muted: #94a3b8;       /* приглушённый текст */
+  --accent: #fbbf24;      /* золотой акцент */
+  --accent-dark: #1e293b; /* текст на золотой кнопке */
+}
+
+/* ===== ОБЩЕЕ ===== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+main { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
+section { margin-top: 60px; }
+
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; margin: 0 0 12px; }
+h2 { color: var(--accent); font-size: 30px; margin-bottom: 20px; }
+
+/* ===== ВЕРХНИЙ БЛОК ===== */
+.hero {
+  text-align: center;
+  padding: 90px 20px 60px;
+  background: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.18), transparent 60%);
+}
+.hero h1 { font-size: 72px; }
+.small-caps { text-transform: uppercase; letter-spacing: 0.25em; font-size: 13px; color: var(--accent); }
+.years { font-size: 22px; color: var(--muted); margin: 0; }
+.lead { max-width: 560px; margin: 24px auto 32px; font-size: 18px; }
+.muted { color: var(--muted); font-size: 14px; }
+
+/* ===== КНОПКИ ===== */
+.btn {
+  background: var(--accent);
+  color: var(--accent-dark);
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn:disabled { opacity: 0.6; cursor: default; }
+
+/* ===== КАРТОЧКИ И СЕТКА ===== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+.icon { font-size: 36px; margin-bottom: 8px; }
+
+/* ===== ПУТЬ (шкала) ===== */
+.timeline { list-style: none; margin: 0 0 0 8px; padding: 0 0 0 24px; border-left: 2px solid rgba(251, 191, 36, 0.4); }
+.timeline li { margin-bottom: 20px; position: relative; }
+.timeline li::before {
+  content: ""; position: absolute; left: -32px; top: 7px;
+  width: 14px; height: 14px; border-radius: 50%; background: var(--accent);
+}
+.timeline b { display: block; color: var(--accent); }
+
+/* ===== ФОТО ===== */
+.photo, .photo-empty { aspect-ratio: 3 / 4; border-radius: 16px; width: 100%; }
+.photo { object-fit: cover; }
+.photo-empty {
+  display: flex; align-items: center; justify-content: center;
+  border: 1px dashed var(--border); background: var(--card); color: var(--muted);
+}
+
+/* ===== КНИГА ПАМЯТИ ===== */
+form input, form textarea {
+  width: 100%; margin-bottom: 12px; padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.6); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px; font: inherit;
+}
+form input:focus, form textarea:focus { outline: none; border-color: var(--accent); }
+.wish { margin-top: 12px; }
+.wish b { color: var(--accent); display: block; }
+
+/* ===== ПОДДЕРЖКА ===== */
+.support {
+  text-align: center; padding: 32px;
+  border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 24px;
+  background: rgba(251, 191, 36, 0.08);
+}
+
+footer { text-align: center; color: var(--muted); font-size: 14px; padding: 0 0 40px; }
+
+/* ===== ТЕЛЕФОНЫ ===== */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 52px; }
+}
